@@ -7,7 +7,15 @@ const name = [
 ];
 
 function cariNama(pilihKata, limit, callback) {
+    if (typeof pilihKata !== "string") {
+        return console.log("Input harus string");
+      }
+      if (typeof limit !== "number") {
+        return console.log("Input harus number");
+      }
+    else {
     return console.log(callback(pilihKata, limit, name)); 
+}
 };
 
 function batasArray(array, limit) {
@@ -24,5 +32,8 @@ function filterItem(pilihKata, limit, array) {
   }),limit);
 };
 
-cariNama("an", 3, filterItem);
+cariNama("an", 3, filterItem); // [ 'Alexandra', 'Amanda', 'Angela' ]
+cariNama(10, 3, filterItem); // Input harus string
+cariNama("an", "10", filterItem); // Input harus number
+
 
